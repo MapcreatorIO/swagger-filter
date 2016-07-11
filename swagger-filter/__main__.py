@@ -31,11 +31,9 @@ def recurse_data(data, exclude, clean=False):
             key = key - offset
 
         if isinstance(key, str) and key.lower()[2:] in exclude:# and data[key] is True and key.lower()[:2] == 'x-':
-            sys.stderr.write('REMOVE HIT FOR {}\n'.format(key))
             return None
 
         if isinstance(key, str) and clean and key.lower()[:2] == 'x-':
-            sys.stderr.write('CLEAN HIT FOR {}\n'.format(key))
             del data[key]
             continue
 
