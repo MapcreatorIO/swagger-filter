@@ -1,6 +1,5 @@
 # swagger-filter
-Allows filtering of swagger.yml for multi target documentation. This repo is currently 
-still a stub. The proposed command line arguments and their usage is ducumented in here.
+Allows filtering of swagger.yml for multi target documentation using extensions.
 
 ```bash
 # removes all extensions (x-*)
