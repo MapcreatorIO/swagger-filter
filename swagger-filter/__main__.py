@@ -30,7 +30,7 @@ def recurse_data(data, exclude, clean=False):
         if isinstance(key, int):
             key = key - offset
 
-        if isinstance(key, str) and key.lower()[2:] in exclude:# and data[key] is True and key.lower()[:2] == 'x-':
+        if isinstance(key, str) and key.lower()[2:] in exclude and data[key] is True and key.lower()[:2] == 'x-':
             return None
 
         if isinstance(key, str) and clean and key.lower()[:2] == 'x-':
