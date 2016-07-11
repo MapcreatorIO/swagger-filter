@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
-import yaml
-import sys
 from argparse import ArgumentParser, FileType
-
+import sys
+import yaml
+import json
 
 def main():
     parser = ArgumentParser()
     parser.add_argument('-i', '--input',  metavar='FILE', type=FileType('r'),
-                        default=sys.stdin, help='Input swagger.yml file')
+                        default=sys.stdin, help='Input swagger file')
     parser.add_argument('-o', '--output', metavar='FILE', type=FileType('w'),
-                        default=sys.stdout, help='Output swagger.yml file')
+                        default=sys.stdout, help='Output swagger file')
 
     parser.add_argument('--remove-extensions', action='store_true', help='Remove all extensions')
+    parser.add_argument('--json-in', action='store_true', help='Input is json formatted instead of yaml')
+    parser.add_argument('--json-out', action='store_true', help='Output json instead of yaml')
     parser.add_argument('-e', '--exclude', action='append', help='Exclude all nodes containing x-? from output')
     args = parser.parse_args()
 
+    parser_in = json if args.json_in else yaml
+    parser_out = json if args.json_out else yaml
+
     exclude = list(map(lambda x: x.lower(), args.exclude or []))
-    data = yaml.load(args.input)
+    data = parser_in.load(args.input)
     data = recurse_data(data, exclude, args.remove_extensions)
-    yaml.dump(data, args.output)
+    parser_out.dump(data, args.output)
 
 
 def recurse_data(data, exclude, clean=False):
