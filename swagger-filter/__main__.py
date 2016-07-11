@@ -4,6 +4,7 @@ import sys
 import yaml
 import json
 
+
 def main():
     parser = ArgumentParser()
     parser.add_argument('-i', '--input',  metavar='FILE', type=FileType('r'),
