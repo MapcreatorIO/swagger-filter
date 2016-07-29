@@ -11,7 +11,8 @@ setup(
     author='MapCreator',
     author_email='bas.bieling@mapcreator.eu',
     url='https://github.com/MapOnline/swagger-filter',
-    version='0.1.1',
+    version='0.1.2',
+    license='MIT',
     scripts=['bin/swagger-filter'],
     install_requires=requirements,
 )
