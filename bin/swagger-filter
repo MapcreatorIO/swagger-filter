@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
+
 from argparse import ArgumentParser, FileType
 import sys
 import yaml
 import json
+
+__author__ = "Bas Bieling"
+__copyright__ = "Copyright 2016, MapCreator`"
+__credits__ = ["Bas Bieling"]
+__license__ = "MIT"
+__version__ = "0.1"
+__maintainer__ = "Bas Bieling"
 
 
 def main():
