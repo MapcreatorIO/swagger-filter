@@ -8,8 +8,8 @@ requirements = [str(r.req) for r in requirements]
 setup(
     name='swagger-filter',
     description='Allows for filtering extension properties in yaml and json',
-    author='Mechazawa',
-    url='https://github.com/Mechazawa/swagger-filter',
+    author='MapCreator',
+    url='https://github.com/MapOnline/swagger-filter',
     version='0.1',
     scripts=['bin/swagger-filter'],
     install_requires=requirements,
